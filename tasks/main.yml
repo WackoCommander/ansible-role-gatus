@@ -4,6 +4,7 @@
 - name: Ensure image is pulled
   containers.podman.podman_image:
     name: "{{ gatus_image }}"
+    tag: "{{ gatus_image_tag }}"
   register: pulled
 
 - name: Remove existing container if image has changed (Podman)
