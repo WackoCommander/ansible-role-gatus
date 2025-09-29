@@ -12,6 +12,7 @@ Role Variables
 --------------
 Available variables are listed below, along with default values (```see defaults/main.yml```):
 ```
+rootless_user: 'podman'
 gatus_image: 'twinproduction/gatus:latest'
 gatus_container: 'gatus'
 ```
