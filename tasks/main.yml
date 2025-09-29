@@ -31,4 +31,5 @@
     owner: "{{ rootless_user }}"
     group: "{{ rootless_user }}"
     mode: '0444'
+    force: yes
   become: true
