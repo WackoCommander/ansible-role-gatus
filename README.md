@@ -1,7 +1,7 @@
-Role Name
+Ansible Role: Gatus (Container)
 =========
 
-A brief description of the role goes here.
+An Ansible role that installs Gatus to run as a rootless Podman quadlet. 
 
 Requirements
 ------------
