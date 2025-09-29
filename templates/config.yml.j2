@@ -1,5 +1,5 @@
 endpoints:
-{% for endpoint in tcp_endpoints %}
+{% for endpoint in endpoints %}
   - name: {{ endpoint.name }}
     url: {{ endpoint.url }}
     interval: {{ endpoint.interval }}
