@@ -1,0 +1,36 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for ansible-role-gatus
+- name: Ensure image is pulled (Docker)
+  community.docker.docker_image:
+    name: "{{ gatus_image }}"
+  register: pulled
+  when: engine is 'docker'
+
+- name: Ensure image is pulled (Podman)
+    name: "{{ gatus_image }}"
+  register: pulled
+  when: engine is 'podman'
+
+- name: Remove existing container if image has changed (Docker)
+  community.docker.docker_container:
+    name: "{{ gatus_container }}"
+    state: absent
+  when: pulled.changed
+
+- name: Remove existing container if image has changed (Podman)
+  community.podman.podman_container:
+    name: "{{ podman_container }}"
+    state: absent
+  when: pulled.changed
+
+- name: Ensure /etc/gatus/ directory exists
+  file:
+    path: /etc/gatus
+    state: directory
+    mode: 0755
+
+- name: Copy template to host 
+  template:
+    src: templates/config.yml.j2
+    path: /etc/gatus/config.yml

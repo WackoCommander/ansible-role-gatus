@@ -1,0 +1,10 @@
+endpoints:
+{% for endpoint in tcp_endpoints %}
+  - name: {{ endpoint.name }}
+    url: {{ endpoint.url }}
+    interval: {{ endpoint.interval }}
+    conditions:
+    {% for condition in endpoint_conditions }
+      - {{ condition }}
+{% endfor %}
+
