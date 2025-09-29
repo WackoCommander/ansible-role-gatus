@@ -6,12 +6,14 @@
     name: "{{ gatus_image }}"
     tag: "{{ gatus_image_tag }}"
   register: pulled
+  become_user: "{{ rootless_user }}"
 
-- name: Remove existing container if image has changed (Podman)
+- name: Remove existing container if image has changed
   containers.podman.podman_container:
     name: "{{ podman_container }}"
     state: absent
   when: pulled.changed
+  become_user: "{{ rootless_user }}"
 
 - name: Ensure /etc/gatus/ directory exists
   file:
