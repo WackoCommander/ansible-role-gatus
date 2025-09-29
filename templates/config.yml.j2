@@ -4,8 +4,7 @@ endpoints:
     url: {{ endpoint.url }}
     interval: {{ endpoint.interval }}
     conditions:
-    {% for condition in endpoint_conditions }
+    {% for condition in endpoint_conditions %}
       - {{ condition }}
     {% endfor %}
 {% endfor %}
-
