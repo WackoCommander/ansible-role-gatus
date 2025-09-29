@@ -6,5 +6,6 @@ endpoints:
     conditions:
     {% for condition in endpoint_conditions }
       - {{ condition }}
+    {% endfor %}
 {% endfor %}
 
