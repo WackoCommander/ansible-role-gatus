@@ -10,7 +10,7 @@
 
 - name: Remove existing container if image has changed
   containers.podman.podman_container:
-    name: "{{ podman_container }}"
+    name: "{{ gatus_container }}"
     state: absent
   when: pulled.changed
   become_user: "{{ rootless_user }}"
