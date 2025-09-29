@@ -1,6 +1,7 @@
 #SPDX-License-Identifier: MIT-0
 ---
 rootless_user: 'podman'
-gatus_image: 'twinproduction/gatus:latest'
+gatus_image: 'twinproduction/gatus'
+gatus_image_tag: 'latest'
 gatus_container: 'gatus'
 # defaults file for ansible-role-gatus
