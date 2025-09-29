@@ -2,12 +2,12 @@
 ---
 # tasks file for ansible-role-gatus
 - name: Ensure image is pulled
-  community.podman.podman_image:
+  containers.podman.podman_image:
     name: "{{ gatus_image }}"
   register: pulled
 
 - name: Remove existing container if image has changed (Podman)
-  community.podman.podman_container:
+  containers.podman.podman_container:
     name: "{{ podman_container }}"
     state: absent
   when: pulled.changed
@@ -18,9 +18,12 @@
     state: directory
     owner: "{{ rootless_user }}"
     group: "{{ rootless_user }}"
-    mode: 0755
+    mode: '0755'
 
 - name: Copy template to host 
   template:
     src: templates/config.yml.j2
     path: /etc/gatus/config.yml
+    owner: "{{ rootless_user }}"
+    group: "{{ rootless_user }}"
+    mode: '0444'
