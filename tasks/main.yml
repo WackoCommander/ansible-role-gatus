@@ -22,6 +22,7 @@
     owner: "{{ rootless_user }}"
     group: "{{ rootless_user }}"
     mode: '0755'
+  become: true
 
 - name: Copy template to host 
   template:
@@ -30,3 +31,4 @@
     owner: "{{ rootless_user }}"
     group: "{{ rootless_user }}"
     mode: '0444'
+  become: true
