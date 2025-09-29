@@ -27,7 +27,7 @@
 - name: Copy template to host 
   template:
     src: templates/config.yml.j2
-    path: /etc/gatus/config.yml
+    dest: /etc/gatus/config.yml
     owner: "{{ rootless_user }}"
     group: "{{ rootless_user }}"
     mode: '0444'
