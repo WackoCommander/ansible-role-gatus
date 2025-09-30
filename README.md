@@ -16,7 +16,7 @@ rootless_user: 'podman'
 gatus_image: 'twinproduction/gatus:latest'
 gatus_container: 'gatus'
 ```
-You can configure Gatus via Ansible variables. For example; 
+You can do basic Gatus configuration via Ansible variables. See below. 
 ```
 tcp_endpoints:
   - name: Grafana
