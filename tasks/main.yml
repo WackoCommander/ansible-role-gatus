@@ -36,10 +36,10 @@
 
 - name: Create Gatus quadlet
   containers.podman.podman_container:
-    name: quadlet-gatus
+    name: "{{ gatus_container }}"
     image: "{{ gatus_image }}"
     state: quadlet
-    quadlet_filename: "{{ gatus_container }}"
+    quadlet_filename: "quadlet-gatus"
     quadlet_file_mode: '0640'
     ports:
       - "8080:8080"
